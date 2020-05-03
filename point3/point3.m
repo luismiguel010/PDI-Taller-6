@@ -1,7 +1,7 @@
 clear all;
 clc;
 
-ImageOriginal = imread('./../images/dados/5.jpg');
+ImageOriginal = imread('./../images/dados/3.jpg');
 BW = im2bw(ImageOriginal,0.5);
 [x,y] = size(BW);
 ImageLabel = zeros(x,y);
@@ -47,7 +47,10 @@ NumberObject = unique(ImageLabel);
 counter = 0;
 
 for k = 1 : length(NumberObject)
-    if NumberObject(k) == 0
-        
+    if NumberObject(k) ~= 0
+        counter = counter + 1;
     end
 end
+
+X = sprintf('El número de objetos es: %d',counter);
+disp(X);
